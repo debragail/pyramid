@@ -660,7 +660,7 @@ def takes_one_arg(callee, attr=None, argname=None):
         fn = callee
     elif inspect.isclass(callee):
         fn = callee.__init__
-        ismethod = hasattr(fn, '__call__')
+        ismethod = callable(fn)
     else:
         try:
             fn = getattr(callee, attr)
